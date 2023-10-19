@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+    <title>register</title>
+</head>
+<div class="container">
+<div class="text-center">
+<body>
+<h2> <u> Registration form </u> </h2> <br>
+<!-- form action contains the path specified in urls.py
+----    csrf_token should be given for POST method         -->
+<form method="post" action="register">
+    {% csrf_token %}
+    <table  class="table table-bordered table-striped">
+        <tr>
+            <td> Username</td>
+            <td> <input type="text" name="name"> <br></td>
+        </tr>
+        <tr>
+            <td> First name </td>
+            <td> <input type="text" name="fname"> <br></td>
+        </tr>
+        <tr>
+            <td> Last name </td>
+            <td> <input type="text" name="lname"> <br></td>
+        </tr>
+        <tr>
+            <td> email </td>
+            <td> <input type="email" name="email"> <br></td>
+        </tr>
+        <tr>
+            <td> Password </td>
+            <td> <input type="password" name="pass1"> </td>
+        </tr>
+        <tr>
+            <td> Confirm Password</td>
+            <td> <input type="password" name="pass2"> <br> </td>
+        </tr>
+        <tr style="text-align:center;">
+            <td colspan="2"> <input type="submit" value="SUBMIT">
+            </td>
+        </tr>
+    </table>
+</form>
+{% for i in messages %}
+<h2> {{i}} </h2>
+{% endfor %}
+</body>
+</div>
+</div>
+</html>
